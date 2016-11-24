@@ -120,9 +120,9 @@ $stderr = fopen('php://stderr', 'w');
 list($host, $port) = explode(':', $argv[1], 2);
 $maxTries = 10;
 do {
-	$mysql = new mysqli($host, $argv[2], $argv[3], '', (int)$port);
+	$mysql = new mysqli($host, $argv[2], $argv[3],'', (int)$port);
 	if ($mysql->connect_error) {
-		fwrite($stderr, "\n" . 'MySQL Connection Error: (' . $mysql->connect_errno . ') ' . $mysql->connect_error . "\n");
+		fwrite($stderr, "\n" . 'MySQL Connection Error : (' . $mysql->connect_errno . ' ) ' . $mysql->connect_error . "\n");
 		--$maxTries;
 		if ($maxTries <= 0) {
 			exit(1);
